@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "start:dev": "ng serve --open",
-    "build": "ng build --aot --configuration production",
-    "watch": "ng build --watch --configuration development",
+    "build:dev": "ng build --configuration development",
+    "build:prod": "ng build --aot --configuration production",
     "test:unit": "ng test --browsers=ChromeHeadless --watch=false",
     "test:e2e": "ng e2e",
     "lint": "ng lint"
