@@ -1,44 +1,60 @@
-name: Angular CI
+name: Development
 
 on:
-  push:
-    branches: [main, homolog, develop]
   pull_request:
-    branches: [main, homolog, develop]
+    branches: [develop]
+  workflow_call:
 
 jobs:
-  build:
-    name: Tests
+  test:
+    name: Test application
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
+    timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: "🔧 Setup Node.js 18"
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
 
-      - name: Run install
+      - name: "📦 Install dependencies"
         uses: borales/actions-yarn@v4
         with:
           cmd: install --immutable --immutable-cache --check-cache
 
-      - name: Unit tests
+      - name: "🔍 Run unit tests"
         uses: borales/actions-yarn@v4
         with:
           cmd: test:unit
 
-      - name: E2E tests
+      - name: "🔍 Run e2e tests"
         uses: borales/actions-yarn@v4
         with:
           cmd: test:e2e
 
-      - name: Lint
+  lint:
+    name: Code standards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "🔧 Setup Node.js 18"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: "📦 Install dependencies"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --immutable --immutable-cache --check-cache
+
+      - name: "🔍 ESLint"
         uses: borales/actions-yarn@v4
         with:
           cmd: lint
