@@ -1,0 +1,64 @@
+name: Development
+
+on:
+  pull_request:
+    branches:
+      - develop
+  push:
+    branches:
+      - develop
+  workflow_call:
+
+jobs:
+  test:
+    name: Test application
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "🔧 Setup Node.js 18"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: "📦 Install dependencies"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --immutable --immutable-cache --check-cache
+
+      - name: "🔍 Run unit tests"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test:unit
+
+      - name: "🔍 Run e2e tests"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test:e2e
+
+  lint:
+    name: Code standards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: "☁️ Checkout repository"
+        uses: actions/checkout@v3
+
+      - name: "🔧 Setup Node.js 18"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: "📦 Install dependencies"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install --immutable --immutable-cache --check-cache
+
+      - name: "🔍 ESLint"
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint

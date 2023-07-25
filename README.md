@@ -12,7 +12,10 @@
 		<img src="https://img.shields.io/github/license/RandomFeeders/fe-random-feeders?style=flat-square" alt="Package License" />
 	</a>
 	<a href="https://github.com/RandomFeeders/fe-random-feeders/actions" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/RandomFeeders/fe-random-feeders/angular-ci?style=flat-square" alt="Angular CI" />
+    <img src="https://img.shields.io/github/actions/workflow/status/RandomFeeders/fe-random-feeders/tests.yml?branch=main&style=flat-square&label=tests" alt="Angular CI" />
+  </a> 
+  <a href="https://github.com/RandomFeeders/fe-random-feeders/actions" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/RandomFeeders/fe-random-feeders/build.yml?branch=main&style=flat-square&label=build" alt="Angular Build" />
   </a> 
 	<a href="https://discord.gg/9CwjUZ8BkC" target="_blank">
 		<img src="https://img.shields.io/discord/321698501929205782?color=%237289DA&label=discord&style=flat-square" alt="Discord"/>
