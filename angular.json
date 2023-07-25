@@ -134,7 +134,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "fe-random-feeders:serve",
-            "watch": true,
+            "watch": false,
             "headless": true
           },
           "configurations": {
