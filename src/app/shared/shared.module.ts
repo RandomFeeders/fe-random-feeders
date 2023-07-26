@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerService } from './spinner/spinner.service';
+import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -13,21 +16,28 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         HttpClientModule,
         FontAwesomeModule,
     ],
-    declarations: [],
+    declarations: [SpinnerComponent],
     exports: [
         CommonModule,
         RouterModule,
         FormsModule,
         HttpClientModule,
+        SpinnerComponent,
         FontAwesomeModule,
     ],
-    providers: [],
+    providers: [SpinnerService],
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders<SharedModule> {
         return {
             ngModule: SharedModule,
-            providers: [],
+            providers: [
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: SpinnerInterceptor,
+                    multi: true,
+                },
+            ],
         };
     }
 }
