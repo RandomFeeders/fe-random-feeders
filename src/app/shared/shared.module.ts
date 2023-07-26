@@ -7,6 +7,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { SpinnerService } from './spinner/spinner.service';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContentTypeInterceptor } from './interceptors/contenttype.interceptor';
+import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 
 @NgModule({
     imports: [
@@ -32,6 +34,16 @@ export class SharedModule {
         return {
             ngModule: SharedModule,
             providers: [
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: ContentTypeInterceptor,
+                    multi: true,
+                },
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: AuthorizationInterceptor,
+                    multi: true,
+                },
                 {
                     provide: HTTP_INTERCEPTORS,
                     useClass: SpinnerInterceptor,
