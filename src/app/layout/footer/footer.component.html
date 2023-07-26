@@ -1,0 +1,17 @@
+<footer class="row w-100 m-0 px-5">
+    <div class="col my-auto">
+        <p *ngIf="showCopyright">
+            © Random Feeders. Todos os direitos reservados.
+        </p>
+    </div>
+    <div class="col my-auto text-right">
+        <a
+            href="{{ discordInvite }}"
+            class="rounded-circle p-2 discord"
+            target="_blank"
+            aria-label="discord invite"
+        >
+            <fa-icon [icon]="faDiscord" size="lg"></fa-icon>
+        </a>
+    </div>
+</footer>
