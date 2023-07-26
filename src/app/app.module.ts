@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { ErrorsModule } from './errors/errors.module';
 import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutModule } from './layout/layout.module';
@@ -15,6 +16,7 @@ import { LayoutModule } from './layout/layout.module';
         AppRoutingModule,
         SharedModule.forRoot(),
         LayoutModule,
+        ErrorsModule,
         FontAwesomeModule,
     ],
     providers: [],
