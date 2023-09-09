@@ -7,6 +7,7 @@
 <p align="center">
 	A <a href="https://angular.io/" target="_blank">Angular</a> front-end app used on the <a href="https://randomfeeders.com.br/" target="_blank">Random Feeders</a> website.
 </p>
+
 <p align="center">
 	<a href="https://www.npmjs.com/~nestjscore" target="_blank">
 		<img src="https://img.shields.io/github/license/RandomFeeders/fe-random-feeders?style=flat-square" alt="Package License" />
@@ -49,3 +50,4 @@ Run `yarn test:unit` to execute the unit tests via [Karma](https://karma-runner.
 ## Running end-to-end tests
 
 Run `yarn test:e2e` to execute the end-to-end tests via [Cypress](https://www.cypress.io/).
+
